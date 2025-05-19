@@ -396,8 +396,9 @@ def train_model(data_path):
     # Also save individual models
     for name, model in models.items():
         if name != 'Ensemble':
-            joblib.dump(model, f'models/titanic_{name.lower().replace(" ", "_")}_model.pkl')
-            print(f"   - {name} model saved to: models/titanic_{name.lower().replace(" ", "_")}_model.pkl")
+            model_filename = 'models/titanic_' + name.lower().replace(" ", "_") + '_model.pkl'
+            joblib.dump(model, model_filename)
+            print(f"   - {name} model saved to: {model_filename}")
     
     return voting_clf, accuracy
 
