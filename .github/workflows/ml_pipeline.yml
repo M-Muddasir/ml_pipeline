@@ -33,7 +33,7 @@ jobs:
         python -m pytest test_model.py -v --html=test_report.html --self-contained-html
     
     - name: Upload test report
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v4
       with:
         name: test-report
         path: test_report.html
@@ -47,7 +47,7 @@ jobs:
         python model.py | tee model_output.txt
     
     - name: Upload model artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: titanic-ml-models
         path: |
