@@ -12,7 +12,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
     
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -47,7 +47,7 @@ jobs:
         python model.py | tee model_output.txt
     
     - name: Upload model artifacts
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v2
       with:
         name: titanic-ml-models
         path: |
@@ -73,7 +73,7 @@ jobs:
       shell: bash
     
     - name: Upload model report
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v2
       with:
         name: titanic-ml-report
         path: model_report.md
