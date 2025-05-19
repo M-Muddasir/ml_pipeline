@@ -83,6 +83,9 @@ class TestPreprocessing:
             assert title in df['Title'].values, f"Common title '{title}' should be extracted"
         
         # Create a visualization of title distribution for the test report
+        # Create results directory if it doesn't exist
+        os.makedirs('results', exist_ok=True)
+        
         plt.figure(figsize=(10, 6))
         title_counts = df['Title'].value_counts()
         title_counts.plot(kind='bar')
@@ -122,6 +125,9 @@ class TestModel:
         assert accuracy > 0.8, f"Model accuracy should be greater than 80%, but got {accuracy*100:.2f}%"
         
         # Create a visualization of model accuracy for the test report
+        # Create results directory if it doesn't exist
+        os.makedirs('results', exist_ok=True)
+        
         plt.figure(figsize=(8, 6))
         plt.bar(['Accuracy'], [accuracy], color='green')
         plt.axhline(y=0.8, color='red', linestyle='--', label='Minimum Required (80%)')
